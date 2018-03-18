@@ -1,0 +1,33 @@
+{
+  "name": "bip38d",
+  "description": "Utility to decrypt a BIP38 (encrypted) private key",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bip38": "^2.0.2",
+    "bitcore-lib": "^0.15.0",
+    "wif": "^2.0.6"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makevoid/bip38-decrypt.git"
+  },
+  "keywords": [
+    "bip38",
+    "bitcoin",
+    "decrypt",
+    "private-keys"
+  ],
+  "author": "makevoid",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/makevoid/bip38-decrypt/issues"
+  },
+  "homepage": "https://github.com/makevoid/bip38-decrypt#readme"
+}
