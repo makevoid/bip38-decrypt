@@ -1,6 +1,8 @@
 'use strict'
 const c = console
 const fs    = require('fs')
+const exists = fs.existsSync
+const readFile = fs.readFileSync
 const bip38 = require('bip38')
 const wif   = require('wif')
 const decrypt   = bip38.decrypt
@@ -10,11 +12,17 @@ const keyToWif  = (privateKey) => {
 }
 
 const bip38PrivateKey = process.env.BIP38_PRIVATE_KEY ||  process.argv[2]
-const password        = process.env.PASSWORD || process.argv[3]
+const passwordFile    = process.env.PASSWORD_FILE || process.argv[3] || ".password"
 
 if (!bip38PrivateKey) throw new Error("Empty BIP38 private Key, aborting!")
-if (!password)        throw new Error("Empty BIP38 password, aborting!")
-if (process.env.NODE_ENV != "test") c.log("decrypting private key...") 
+
+if (!exists(passwordFile)) throw new Error(`Password file '${passwordFile}' not found, aborting!`)
+let password = readFile(passwordFile)
+const emptyPasswordError = new Error("Empty BIP38 password, aborting!")
+if (!password || password == "") throw emptyPasswordError
+password = password.toString().trim()
+if (password == "") throw new emptyPasswordError
+if (process.env.NODE_ENV != "test") c.log("decrypting private key...")
 
 module.exports = {
   bip38PrivateKey:  bip38PrivateKey,

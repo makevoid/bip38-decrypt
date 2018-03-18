@@ -11,6 +11,9 @@
   "devDependencies": {
     "jest": "^22.4.2"
   },
+  "bin": {
+    "bip38d": "index.js"
+  },
   "scripts": {
     "test": "NODE_ENV=test jest --runInBand"
   },

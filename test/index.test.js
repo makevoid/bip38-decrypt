@@ -1,15 +1,17 @@
 'use strict'
 
 const bip38PrivateKey = "6PYWpYms78Q3vJPVHvsHFCF1AKtd1PayV9qSeVGV47FtyXWHRJMreWsXYL"
-const password        = "password"
+const passwordFile    = ".password"
 
+const fs = require('fs')
+const writeFileSync = fs.writeFileSync
 const execSync = require('child_process').execSync
 
-
+writeFileSync(".password", "password")
 
 describe('CLI', () => {
 
-  const env = `BIP38_PRIVATE_KEY=${bip38PrivateKey} PASSWORD=${password}`
+  const env = `BIP38_PRIVATE_KEY=${bip38PrivateKey} PASSWORD_FILE=${passwordFile}`
   const outputBuf = execSync(`${env} ./index.js`)
   const output = outputBuf.toString()
 
