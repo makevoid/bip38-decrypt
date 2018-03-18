@@ -1,6 +1,6 @@
 # bip38-decrypt
 
-Utility to decrypt a BIP38 (encrypted) private key
+Command line utility to decrypt a BIP38 (encrypted) private key.
 
 
 ### Install

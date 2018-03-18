@@ -1,7 +1,7 @@
 {
   "name": "bip38d",
   "description": "Utility to decrypt a BIP38 (encrypted) private key",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "dependencies": {
     "bip38": "^2.0.2",
