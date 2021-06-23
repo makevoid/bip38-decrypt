@@ -31,6 +31,11 @@ This example should work successfully, it's the same used in the jest test, this
     bip38d 6PYWpYms78Q3vJPVHvsHFCF1AKtd1PayV9qSeVGV47FtyXWHRJMreWsXYL .password
 
 
+### Usage with extra script to derive public address
+
+    ./get_public_address.py $(node bip38-decrypt.js 6PYWpYms78Q3vJPVHvsHFCF1AKtd1PayV9qSeVGV47FtyXWHRJMreWsXYL .password )
+
+
 ### Test
 
 This will run the jest test

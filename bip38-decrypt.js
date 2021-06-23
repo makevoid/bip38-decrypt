@@ -23,9 +23,10 @@ const emptyPasswordError = new Error("Empty BIP38 password, aborting!")
 if (!password || password == "") throw emptyPasswordError
 password = password.toString().trim()
 if (password == "") throw new emptyPasswordError
-if (process.env.NODE_ENV != "test") c.log("decrypting private key...")
+/* if (process.env.NODE_ENV != "test") c.log("decrypting private key...")
+ */
 
-bip38Decrypt(bip38PrivateKey, password, function(err,decryptedPrivateWif) { console.log(err ? err.msg : "private key: " + decryptedPrivateWif) });
+bip38Decrypt(bip38PrivateKey, password, function(err,decryptedPrivateWif) { console.log(err ? err.msg : decryptedPrivateWif) });
 
 module.exports = {
   bip38PrivateKey:  bip38PrivateKey,
