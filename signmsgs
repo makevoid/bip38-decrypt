@@ -1,0 +1,12 @@
+#!/bin/sh
+
+message_part_one="On this day of August 16th 2022, I Robert P. Levy sign this proof of ownership of bitcoin address "
+
+message_part_two=", for independent verification by Guaranteed Rate as proof of liquid reserve assets."
+
+cat /tmp/addrs | while read k ; do
+    decrypted_private_key=$(node bip38-decrypt.js "$k" .password )
+    public_key=$(./get_public_address.py $decrypted_private_key)
+    message="$message_part_one$public_key$message_part_two"
+    ./sign_message.py $decrypted_private_key "$message"
+done
