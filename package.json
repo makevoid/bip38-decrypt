@@ -5,11 +5,12 @@
   "main": "index.js",
   "dependencies": {
     "bip38": "^2.0.2",
-    "bitcore-lib": "^0.15.0",
+    "bip38-decrypt": "^1.0.2",
+    "bitcore-lib": "^8.25.10",
     "wif": "^2.0.6"
   },
   "devDependencies": {
-    "jest": "^22.4.2"
+    "jest": "^27.0.5"
   },
   "bin": {
     "bip38d": "index.js"
